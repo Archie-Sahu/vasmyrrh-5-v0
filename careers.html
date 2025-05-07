@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers | Vasmyrrh Technologies</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="Images/webicon2.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap">
+    <style>
+        /* Additional styles for careers page */
+        .careers-hero {
+            min-height: 50vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+        
+        .careers-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .careers-hero p {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            font-size: 1.2rem;
+        }
+        
+        .careers-intro {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .careers-intro h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .careers-intro p {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .benefits-section {
+            padding: 5rem 2rem;
+            background: var(--darker-bg);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .benefit-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--neon-glow);
+        }
+        
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1.5rem;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            filter: drop-shadow(0 0 8px var(--primary-color));
+        }
+        
+        .benefit-card h3 {
+            margin-bottom: 1rem;
+        }
+        
+        .openings-section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .job-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .filter-btn {
+            padding: 0.5rem 1.5rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            color: var(--light-text);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary-color);
+            box-shadow: var(--neon-glow);
+        }
+        
+        .job-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .job-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--neon-glow);
+        }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .job-title h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .job-meta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .job-type, .job-location {
+            padding: 0.3rem 1rem;
+            background: var(--glass-bg);
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        .job-description {
+            margin-bottom: 1.5rem;
+        }
+        
+        .job-description p {
+            margin-bottom: 1rem;
+        }
+        
+        .job-description ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .job-description ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .job-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .job-department {
+            padding: 0.3rem 1rem;
+            background: var(--primary-color);
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        .application-section {
+            padding: 5rem 2rem;
+            background: var(--darker-bg);
+            text-align: center;
+        }
+        
+        .application-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .application-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .application-content p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .application-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .step {
+            flex: 1;
+            min-width: 200px;
+            max-width: 250px;
+            text-align: center;
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            box-shadow: var(--neon-glow);
+        }
+        
+        .step h3 {
+            margin-bottom: 1rem;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .job-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .job-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .application-steps {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+    
+       <!-- Top Navigation Bar -->
+<nav class="main-nav" style="display: flex; justify-content: space-between; align-items: center;">
+    <div class="logo-container" style="display: flex; align-items: center;">
+        <img src="Images/logo.png" alt="logo" style="height: 40px; margin-right: 10px;" />
+        <span style="font-weight: bold; font-size: 25px;color: #00BFFF;">VASMYRRH TECHNOLOGIES</span>
+    </div>
+
+    <ul class="nav-links" style="list-style: none; display: flex; gap: 20px; margin: 0; padding: 0;">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="work.html">Portfolio</a></li>
+        <!-- <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="careers.html">Careers</a></li> -->
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+    <!-- Main Content -->
+    <main>
+        <!-- Careers Hero -->
+        <section id="careers-hero" class="careers-hero">
+            <h1 class="gradient-text">Join Our Team</h1>
+            <p>Be part of a team that's pushing the boundaries of technology and creating innovative solutions that make a difference.</p>
+        </section>
+
+        <!-- Careers Intro -->
+        <section id="careers-intro" class="careers-intro">
+            <div class="dna-strand">
+                <div class="dna-helix"></div>
+            </div>
+            <h2>Why Work With Us?</h2>
+            <p>At Vasmyrrh Technologies, we believe that our people are our greatest asset. We're building a team of passionate, creative, and talented individuals who share our vision of using technology to solve complex problems and create exceptional digital experiences.</p>
+            <p>We foster a culture of innovation, collaboration, and continuous learning, providing our team members with the resources, support, and opportunities they need to grow both personally and professionally.</p>
+        </section>
+
+        <!-- Benefits Section -->
+        <section id="benefits" class="benefits-section">
+            <h2 class="section-title">Benefits & Perks</h2>
+            <div class="benefits-grid">
+                
+                <div class="benefit-card reveal">
+                    <!-- <div class="benefit-icon" style="background-image: url('assets/icons/growth.png')"></div> -->
+                    <img src="Images/profdev.png" alt="Vasmyrrh Technologies Team">
+                    <h3>Professional Development</h3>
+                    <p>Access to conferences, workshops, courses, and certifications to help you grow your skills.</p>
+                </div>
+                
+                <div class="benefit-card reveal">
+                    <!-- <div class="benefit-icon" style="background-image: url('assets/icons/flexible.png')"></div> -->
+                    <img src="Images/flexiblework.png" alt="Vasmyrrh Technologies Team">
+                    <h3>Flexible Work</h3>
+                    <p>Flexible working hours and remote work options to help you maintain work-life balance.</p>
+                </div>
+                
+                <div class="benefit-card reveal">
+                    <!-- <div class="benefit-icon" style="background-image: url('assets/icons/equity.png')"></div> -->
+                    <img src="Images/bonus.jfif" alt="Vasmyrrh Technologies Team">
+                    <h3>Bonuses</h3>
+                    <p>Competitive compensation including performance-based bonuses.</p>
+                </div>
+                
+                            </div>
+        </section>
+
+        <!-- Current Openings -->
+        <section id="openings" class="openings-section">
+            <h2 class="section-title">Current Openings</h2>
+            
+            <div class="job-filters">
+                <button class="filter-btn active" data-filter="all">All Departments</button>
+                <button class="filter-btn" data-filter="engineering">Engineering</button>
+                <button class="filter-btn" data-filter="design">Design</button>
+                <button class="filter-btn" data-filter="product">Product</button>
+                <button class="filter-btn" data-filter="marketing">Marketing</button>
+            </div>
+            
+            <div class="job-list">
+                <div class="job-card reveal" data-department="engineering">
+                    <div class="job-header">
+                        <div class="job-title">
+                            <h3>Senior Full Stack Developer</h3>
+                            <div class="job-meta">
+                                <span class="job-type">Full-time</span>
+                                <span class="job-location">Remote / Hybrid</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary">Apply Now</a>
+                    </div>
+                    <div class="job-description">
+                        <p>We're looking for an experienced Full Stack Developer to join our engineering team. In this role, you'll work on building and maintaining scalable web applications, collaborating with cross-functional teams to deliver exceptional digital experiences.</p>
+                        <h4>Requirements:</h4>
+                        <ul>
+                            <li>5+ years of experience in full stack development</li>
+                            <li>Proficiency in JavaScript/TypeScript, React, Node.js, and modern web technologies</li>
+                            <li>Experience with database design and management (SQL and NoSQL)</li>
+                            <li>Strong problem-solving skills and attention to detail</li>
+                            <li>Excellent communication and collaboration abilities</li>
+                        </ul>
+                    </div>
+                    <div class="job-footer">
+                        <span class="job-department">Engineering</span>
+                        <span>Posted: May 15, 2023</span>
+                    </div>
+                </div>
+                
+                <div class="job-card reveal" data-department="design">
+                    <div class="job-header">
+                        <div class="job-title">
+                            <h3>UX/UI Designer</h3>
+                            <div class="job-meta">
+                                <span class="job-type">Full-time</span>
+                                <span class="job-location">On-site / Hybrid</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary">Apply Now</a>
+                    </div>
+                    <div class="job-description">
+                        <p>We're seeking a talented UX/UI Designer to create intuitive and engaging user experiences for our digital products. You'll work closely with product managers, developers, and stakeholders to design solutions that meet user needs and business goals.</p>
+                        <h4>Requirements:</h4>
+                        <ul>
+                            <li>3+ years of experience in UX/UI design for digital products</li>
+                            <li>Proficiency in design tools such as Figma, Sketch, or Adobe XD</li>
+                            <li>Strong portfolio demonstrating your design process and problem-solving abilities</li>
+                            <li>Experience with user research, wireframing, prototyping, and usability testing</li>
+                            <li>Understanding of accessibility standards and responsive design principles</li>
+                        </ul>
+                    </div>
+                    <div class="job-footer">
+                        <span class="job-department">Design</span>
+                        <span>Posted: June 2, 2023</span>
+                    </div>
+                </div>
+                
+                <div class="job-card reveal" data-department="product">
+                    <div class="job-header">
+                        <div class="job-title">
+                            <h3>Product Manager</h3>
+                            <div class="job-meta">
+                                <span class="job-type">Full-time</span>
+                                <span class="job-location">Hybrid</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary">Apply Now</a>
+                    </div>
+                    <div class="job-description">
+                        <p>We're looking for a strategic Product Manager to lead the development and growth of our digital products. In this role, you'll define product vision, strategy, and roadmap, working closely with cross-functional teams to deliver solutions that delight users and drive business results.</p>
+                        <h4>Requirements:</h4>
+                        <ul>
+                            <li>4+ years of experience in product management for technology products</li>
+                            <li>Strong understanding of product development lifecycle and agile methodologies</li>
+                            <li>Experience with user research, market analysis, and data-driven decision making</li>
+                            <li>Excellent communication, leadership, and stakeholder management skills</li>
+                            <li>Technical background or understanding of software development processes</li>
+                        </ul>
+                    </div>
+                    <div class="job-footer">
+                        <span class="job-department">Product</span>
+                        <span>Posted: May 28, 2023</span>
+                    </div>
+                </div>
+                
+                <div class="job-card reveal" data-department="marketing">
+                    <div class="job-header">
+                        <div class="job-title">
+                            <h3>Digital Marketing Specialist</h3>
+                            <div class="job-meta">
+                                <span class="job-type">Full-time</span>
+                                <span class="job-location">Remote / Hybrid</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary">Apply Now</a>
+                    </div>
+                    <div class="job-description">
+                        <p>We're seeking a Digital Marketing Specialist to help grow our brand presence and drive customer acquisition. You'll develop and execute digital marketing campaigns across various channels, analyze performance, and optimize strategies to achieve marketing objectives.</p>
+                        <h4>Requirements:</h4>
+                        <ul>
+                            <li>3+ years of experience in digital marketing</li>
+                            <li>Proficiency in SEO, SEM, social media marketing, and content marketing</li>
+                            <li>Experience with marketing analytics tools and data-driven decision making</li>
+                            <li>Strong creative and analytical skills</li>
+                            <li>Excellent communication and project management abilities</li>
+                        </ul>
+                    </div>
+                    <div class="job-footer">
+                        <span class="job-department">Marketing</span>
+                        <span>Posted: June 10, 2023</span>
+                    </div>
+                </div>
+                
+                <div class="job-card reveal" data-department="engineering">
+                    <div class="job-header">
+                        <div class="job-title">
+                            <h3>DevOps Engineer</h3>
+                            <div class="job-meta">
+                                <span class="job-type">Full-time</span>
+                                <span class="job-location">Remote</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary">Apply Now</a>
+                    </div>
+                    <div class="job-description">
+                        <p>We're looking for a DevOps Engineer to help build and maintain our cloud infrastructure and deployment pipelines. In this role, you'll work on automating processes, improving system reliability, and ensuring the security and scalability of our applications.</p>
+                        <h4>Requirements:</h4>
+                        <ul>
+                            <li>3+ years of experience in DevOps or Site Reliability Engineering</li>
+                            <li>Proficiency with cloud platforms (AWS, Azure, or GCP)</li>
+                            <li>Experience with containerization, orchestration, and CI/CD pipelines</li>
+                            <li>Knowledge of infrastructure as code and configuration management tools</li>
+                            <li>Strong problem-solving skills and security-focused mindset</li>
+                        </ul>
+                    </div>
+                    <div class="job-footer">
+                        <span class="job-department">Engineering</span>
+                        <span>Posted: June 5, 2023</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Application Process -->
+        <section id="application" class="application-section">
+            <div class="application-content">
+                <h2>Our Application Process</h2>
+                <p>We've designed our hiring process to be thorough yet efficient, giving both you and our team the opportunity to determine if there's a mutual fit.</p>
+                
+                <div class="application-steps">
+                    <div class="step reveal">
+                        <div class="step-number">1</div>
+                        <h3>Application</h3>
+                        <p>Submit your resume and complete a brief questionnaire about your experience and interests.</p>
+                    </div>
+                    
+                    <div class="step reveal">
+                        <div class="step-number">2</div>
+                        <h3>Initial Interview</h3>
+                        <p>A conversation with our recruiting team to discuss your background and the role.</p>
+                    </div>
+                    
+                    <div class="step reveal">
+                        <div class="step-number">3</div>
+                        <h3>Technical Assessment</h3>
+                        <p>A skills-based assessment relevant to the position you're applying for.</p>
+                    </div>
+                    
+                    <div class="step reveal">
+                        <div class="step-number">4</div>
+                        <h3>Team Interviews</h3>
+                        <p>Meet with potential teammates and leaders to discuss your experience and approach.</p>
+                    </div>
+                    
+                    <div class="step reveal">
+                        <div class="step-number">5</div>
+                        <h3>Offer</h3>
+                        <p>If there's a mutual fit, we'll extend an offer and welcome you to the team!</p>
+                    </div>
+                </div>
+                
+                <a href="#openings" class="btn btn-primary">View Open Positions</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3>VASMYRRH</h3>
+                <p>TECHNOLOGIES</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="work.html">Work</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="testimonials.html">Testimonials</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Connect</h4>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" aria-label="LinkedIn"><div class="fa fa-linkedin"></div></a>
+                        <a href="#" class="social-icon" aria-label="Twitter"><div class="fa fa-twitter"></div></a>
+                        <a href="#" class="social-icon" aria-label="Instagram"><div class="fa fa-instagram"></div></a>
+                        <a href="#" class="social-icon" aria-label="GitHub"><div class="fa fa-github"></div></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p><span class="contact-icon location"></span>123 Tech Avenue, Innovation District</p>
+                <p><span class="contact-icon email"></span>info@vasmyrrh.tech</p>
+                <p><span class="contact-icon phone"></span>+1 (555) 123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Vasmyrrh Technologies. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/particles.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Job filtering
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const jobCards = document.querySelectorAll('.job-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Get filter value
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Filter jobs
+                    jobCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-department') === filterValue) {
+                            card.style.display = 'block';
+                            
+                            // Add animation
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 100);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px)';
+                            
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

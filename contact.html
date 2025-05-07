@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Vasmyrrh Technologies</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+    <link rel="stylesheet" href="css/particles.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="Images/webicon2.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap">
+    
+<style>
+   .contact-hero {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 5rem 2rem;
+}
+
+.contact-hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.contact-hero p {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  font-size: 1.2rem;
+}
+
+.contact-section {
+  padding: 5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+.contact-form-container {
+  flex: 1;
+  min-width: 300px;
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 300px;
+}
+
+.contact-form {
+  background: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 15px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  color: var(--light-text);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(110, 0, 255, 0.2);
+}
+
+textarea.form-control {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.form-submit {
+  text-align: right;
+}
+
+.info-card {
+  background: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--neon-glow);
+}
+
+.info-card h3 {
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.info-card h3::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: var(--primary-color);
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.contact-icon-large {
+  width: 40px;
+  height: 40px;
+  margin-right: 1rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: drop-shadow(0 0 5px var(--primary-color));
+}
+
+.location-large {
+  background-image: url('assets/icons/location.png');
+}
+
+.email-large {
+  background-image: url('assets/icons/email.png');
+}
+
+.phone-large {
+  background-image: url('assets/icons/phone.png');
+}
+
+.hours-large {
+  background-image: url('assets/icons/clock.png');
+}
+
+.map-container {
+  height: 300px;
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.offices-section {
+  padding: 5rem 2rem;
+  background: var(--darker-bg);
+}
+
+.offices-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.office-card {
+  background: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.office-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--neon-glow);
+}
+
+.office-image {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.office-details {
+  padding: 1.5rem;
+}
+
+.office-details h3 {
+  margin-bottom: 1rem;
+}
+
+.office-details p {
+  margin-bottom: 0.5rem;
+}
+
+.office-cta {
+  margin-top: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .contact-container {
+      flex-direction: column;
+  }
+  
+  .offices-grid {
+      grid-template-columns: 1fr;
+  }
+}
+
+    </style>
+</head>
+<body>
+
+     <!-- Particle Background -->
+   <div id="particles-js"></div>
+    
+   <!-- Top Navigation Bar -->
+<nav class="main-nav" style="display: flex; justify-content: space-between; align-items: center;">
+<div class="logo-container" style="display: flex; align-items: center;">
+ <img src="Images/logo.png" alt="logo" style="height: 40px; margin-right: 10px;" />
+ <span style="font-weight: bold; font-size: 25px;color: #00BFFF;">VASMYRRH TECHNOLOGIES</span>
+</div>
+
+<ul class="nav-links" style="list-style: none; display: flex; gap: 20px; margin: 0; padding: 0;">
+ <li><a href="index.html" class="active">Home</a></li>
+ <li><a href="about.html">About</a></li>
+ <li><a href="services.html">Services</a></li>
+ <li><a href="work.html">Portfolio</a></li>
+ <!-- <li><a href="testimonials.html">Testimonials</a></li>
+ <li><a href="careers.html">Careers</a></li> -->
+ <li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+<!-- Main Content -->
+<main>
+ <!-- Contact Hero -->
+ <section id="contact-hero" class="contact-hero">
+     <h1 class="gradient-text">Contact Us</h1>
+     <p>Have a question or want to discuss a project? We'd love to hear from you.</p>
+ </section>
+
+ <!-- Contact Form & Info -->
+ <section id="contact-section" class="contact-section">
+     <div class="contact-container">
+         <div class="contact-form-container reveal">
+             <h2 class="section-title">Get In Touch</h2>
+             <form class="contact-form" id="contatForm">
+                 <div class="form-group">
+                     <label for="name">Name</label>
+                     <input type="text" id="name" name="name" class="form-control" required>
+                 </div>
+                 <div class="form-group">
+                     <label for="email">Email</label>
+                     <input type="email" id="email" name="email" class="form-control" required>
+                 </div>
+                 <div class="form-group">
+                     <label for="phone">Phone (Optional)</label>
+                     <input type="tel" id="phone" name="phone" class="form-control">
+                 </div>
+                 <div class="form-group">
+                     <label for="subject">Subject</label>
+                     <input type="text" id="subject" name="subject" class="form-control" required>
+                 </div>
+                 <div class="form-group">
+                     <label for="message">Message</label>
+                     <textarea id="message" name="message" class="form-control" required></textarea>
+                 </div>
+                 <div class="form-submit">
+                     <button type="submit" class="btn btn-primary">Send Message</button>
+                 </div>
+             </form>
+         </div>
+         
+         <div class="contact-info reveal">
+             <h2 class="section-title">Contact Information</h2>
+             
+             <div class="info-card">
+                 <h3>Headquarters</h3>
+                 <div class="contact-item">
+                     <div class="contact-icon-large location-large"></div>
+                     <p>Incubation Cell, 1st Floor, ABESIT<br>Uttar Pradesh, India</p>
+                 </div>
+                 <div class="contact-item">
+                     <div class="contact-icon-large email-large"></div>
+                     <p>info@vasmyrrh.tech</p>
+                 </div>
+                 <div class="contact-item">
+                     <div class="contact-icon-large phone-large"></div>
+                     <p>+91 9470218939</p>
+                 </div>
+                 <div class="contact-item">
+                     <div class="contact-icon-large hours-large"></div>
+                     <p>Monday - Friday: 9:00 AM - 6:00 PM PST</p>
+                 </div>
+             </div>
+             
+             <div class="map-container">
+               
+                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14007.977532581224!2d77.42279944391615!3d28.629930441207875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cee3ba446f129%3A0xc283ad274efcb9c7!2sDundahera%2C%20Ghaziabad%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1746532783738!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+             </div>
+         </div>
+     </div>
+ </section>
+
+ <!-- Global Offices -->
+ <section id="offices" class="offices-section">
+     <h2 class="section-title">Our Offices</h2>
+     <div class="offices-grid">
+         <div class="office-card reveal">
+             <div class="office-image" style="background-image: url('Images/office1.jfif')"></div>
+             <div class="office-details">
+                 <h3>Ghaziabad</h3>
+                 <p>Incubation Cell, 1st Floor</p>
+                 <p>Uttar Pradesh, India</p>
+                 <p>+91 9470218939</p>
+                 <div class="office-cta">
+                     <a href="official@vasmyrrhtechnologies.com" class="btn-link">official@vasmyrrhtechnologies.com</a>
+                 </div>
+             </div>
+         </div>
+         
+         <div class="office-card reveal">
+             <div class="office-image" style="background-image: url('Images/office2.jfif')"></div>
+             <div class="office-details">
+                 <h3>Ghaziabd</h3>
+                 <p>10 Finsbury square</p>
+                 <p>Uttar Pradesh, India</p>
+                 <p>+91 9470218939</p>
+                 <div class="office-cta">
+                     <a href="official@vasmyrrhtechnologies.com" class="btn-link">official@vasmyrrhtechnologies.com</a>
+                 </div>
+            
+             </div>
+         </div>
+         
+         
+     </div>
+ </section>
+
+ <!-- FAQ Section -->
+ <section id="faq" class="contact-section">
+     <h2 class="section-title">Frequently Asked Questions</h2>
+     <div class="faq-container">
+         <div class="faq-item reveal">
+             <h3>What services does Vasmyrrh Technologies offer?</h3>
+             <p>We offer a comprehensive range of digital services including web development, mobile app development, UI/UX design, CRM/ERP solutions, custom software development, and social media management. Visit our <a href="services.html" class="btn-link">Services page</a> for more details.</p>
+         </div>
+         
+         <div class="faq-item reveal">
+             <h3>How do I request a quote for my project?</h3>
+             <p>You can request a quote by filling out the contact form on this page or by emailing us directly at official@vasmyrrhtechnologies.com. Please provide as much detail about your project as possible to help us provide an accurate estimate.</p>
+         </div>
+         
+         <div class="faq-item reveal">
+             <h3>What is your typical project timeline?</h3>
+             <p>Project timelines vary depending on the scope and complexity of the work. A simple website might take 6-7 days, while a complex custom software solution could take several weeks. We'll provide a detailed timeline during our initial consultation.</p>
+         </div>
+         
+         <div class="faq-item reveal">
+             <h3>Do you offer maintenance and support after project completion?</h3>
+             <p>Yes, we offer ongoing maintenance and support packages for all our projects. We believe in building long-term relationships with our clients and ensuring the continued success of the solutions we deliver.</p>
+         </div>
+         
+         <div class="faq-item reveal">
+             <h3>How do you handle project communication?</h3>
+             <p>We maintain transparent and regular communication throughout the project lifecycle. Depending on your preference, we can communicate via email, phone, video calls, or project management tools. We provide regular updates and are always available to address any questions or concerns.</p>
+         </div>
+     </div>
+ </section>
+</main>
+
+<!-- Footer -->
+<footer>
+ <div class="footer-content">
+     <div class="footer-logo">
+         <h3>VASMYRRH</h3>
+         <p>TECHNOLOGIES</p>
+     </div>
+     <div class="footer-links">
+         <div class="footer-column">
+             <h4>Navigation</h4>
+             <ul>
+                 <li><a href="index.html">Home</a></li>
+                 <li><a href="about.html">About</a></li>
+                 <li><a href="services.html">Services</a></li>
+                 <li><a href="work.html">Portfolio</a></li>
+             </ul>
+         </div>
+         <div class="footer-column">
+             <h4>Company</h4>
+             <ul>
+                 <li><a href="testimonials.html">Testimonials</a></li>
+                 <li><a href="careers.html">Careers</a></li>
+                 <li><a href="contact.html">Contact</a></li>
+                 <li><a href="#">Privacy Policy</a></li>
+             </ul>
+         </div>
+         <div class="footer-column">
+             <h4>Connect</h4>
+             <div class="social-icons">
+                 <a href="#" class="social-icon" aria-label="LinkedIn"><div class="fa fa-linkedin"></div></a>
+                 <a href="#" class="social-icon" aria-label="Twitter"><div class="fa fa-twitter"></div></a>
+                 <a href="#" class="social-icon" aria-label="Instagram"><div class="fa fa-instagram"></div></a>
+                 <a href="#" class="social-icon" aria-label="GitHub"><div class="fa fa-github"></div></a>
+             </div>
+         </div>
+     </div>
+     <div class="footer-contact">
+         <h4>Contact Us</h4>
+         <p><span class="contact-icon location"></span>Incubation Cell, ABESIT</p>
+         <p><span class="contact-icon email"></span>official@vamyrrhtechnologies.com</p>
+         <p><span class="contact-icon phone"></span>+91 9470218939</p>
+     </div>
+ </div>
+ <div class="footer-bottom">
+     <p>&copy; 2023 Vasmyrrh Technologies. All rights reserved.</p>
+ </div>
+</footer>
+
+
+    <!-- Scripts -->
+    <script src="js/particles.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+
+</script> -->
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+    (function(){
+      emailjs.init("YIqUNHUhaVzZUF0mL"); // Your EmailJS public key
+    })();
+  
+    const form = document.getElementById('contatForm'); // ✅ Get the form element
+  
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+  
+      emailjs.sendForm('service_4hna0y4', 'template_15ln6mr', this)
+        .then(function() {
+            alert('Message sent successfully!');
+            form.reset(); // ✅ Works now because form is correctly defined
+        }, function(error) {
+            console.log('FAILED...', error);
+            alert('Message failed to send. Please try again.');
+        });
+    });
+  </script>
+  
+  
+        
+</body>
+</html>
