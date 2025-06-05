@@ -245,11 +245,51 @@
         }
     </style>
 </head>
+
+<!-- NAVBAR TEMPLATE -->
+<nav class="main-nav">
+  <div class="logo-container">
+    <img src="Images/logo.png" alt="logo" />
+    <span>VASMYRRH TECHNOLOGIES</span>
+  </div>
+
+  <!-- Hamburger Icon -->
+  <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+  <!-- Navigation Links -->
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="work.html">Portfolio</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+
+<script>
+  function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('active');
+  }
+
+  // Optional: Auto-highlight active page
+  const links = document.querySelectorAll('.nav-links a');
+  const currentPage = window.location.pathname.split("/").pop();
+  links.forEach(link => {
+    const href = link.getAttribute("href");
+    if (href === currentPage) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+
 <body>
     <!-- Particle Background -->
     <div id="particles-js"></div>
 
- <!-- Top Navigation Bar -->
+ <!-- Top Navigation Bar 
  <nav class="main-nav" style="display: flex; justify-content: space-between; align-items: center;">
     <div class="logo-container" style="display: flex; align-items: center;">
         <img src="Images/logo.png" alt="logo" style="height: 40px; margin-right: 10px;" />
@@ -261,11 +301,9 @@
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="work.html">Portfolio</a></li>
-        <!-- <li><a href="testimonials.html">Testimonials</a></li>
-        <li><a href="careers.html">Careers</a></li> -->
         <li><a href="contact.html">Contact</a></li>
     </ul>
-</nav>    <!-- Main Content -->
+</nav>    --> <!-- Main Content -->
     <main>
         <!-- About Hero -->
         <section id="about-hero" class="about-hero">

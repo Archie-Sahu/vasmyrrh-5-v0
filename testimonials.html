@@ -193,11 +193,30 @@
         }
     </style>
 </head>
+
+<script>
+  function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('active');
+  }
+
+  // Optional: Auto-highlight active page
+  const links = document.querySelectorAll('.nav-links a');
+  const currentPage = window.location.pathname.split("/").pop();
+  links.forEach(link => {
+    const href = link.getAttribute("href");
+    if (href === currentPage) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+
 <body>
     <!-- Particle Background -->
     <div id="particles-js"></div>
     
-          <!-- Top Navigation Bar -->
+          <!-- Top Navigation Bar 
 <nav class="main-nav" style="display: flex; justify-content: space-between; align-items: center;">
     <div class="logo-container" style="display: flex; align-items: center;">
         <img src="Images/logo.png" alt="logo" style="height: 40px; margin-right: 10px;" />
@@ -209,11 +228,31 @@
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="work.html">Portfolio</a></li>
-        <!-- <li><a href="testimonials.html">Testimonials</a></li>
-        <li><a href="careers.html">Careers</a></li> -->
         <li><a href="contact.html">Contact</a></li>
     </ul>
+</nav> -->
+
+<!-- NAVBAR TEMPLATE -->
+<nav class="main-nav">
+  <div class="logo-container">
+    <img src="Images/logo.png" alt="logo" />
+    <span>VASMYRRH TECHNOLOGIES</span>
+  </div>
+
+  <!-- Hamburger Icon -->
+  <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+  <!-- Navigation Links -->
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="work.html">Portfolio</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
 </nav>
+
+
     <!-- Main Content -->
     <main>
         <!-- Testimonials Hero -->
@@ -391,53 +430,7 @@
                     </div>
                 </div>
                 
-                <!-- <div class="testimonial-card reveal">
-                    <div class="testimonial-header">
-                        <div class="client-image" style="background-image: url('anshulbhaiya.jpg')"></div>
-                        <div class="client-info">
-                            <h3>James Wilson</h3>
-                            <span>Founder, Quantum Logistics</span>
-                        </div>
-                    </div>
-                    <div class="testimonial-body">
-                        <div class="quote-icon"></div>
-                        <p>"Vasmyrrh Technologies developed a logistics management system that has transformed our supply chain operations. The predictive analytics capabilities have reduced our shipping costs by 30% and improved delivery times by 25%. The team's expertise in IoT integration allowed us to implement real-time tracking across our entire fleet."</p>
-                    </div>
-                    <div class="testimonial-footer">
-                        <div class="rating">
-                            <div class="star"></div>
-                            <div class="star"></div>
-                            <div class="star"></div>
-                            <div class="star"></div>
-                            <div class="star"></div>
-                        </div>
-                        <div class="project-type">Custom Software</div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card reveal">
-                    <div class="testimonial-header">
-                        <div class="client-image" style="background-image: url('anshulbhaiya.jpg')"></div>
-                        <div class="client-info">
-                            <h3>Lisa Chen</h3>
-                            <span>E-commerce Director, Stellar Retail</span>
-                        </div>
-                    </div>
-                    <div class="testimonial-body">
-                        <div class="quote-icon"></div>
-                        <p>"Our e-commerce platform developed by Vasmyrrh Technologies has significantly outperformed our previous solution. The integration of AR product visualization has reduced return rates by 35% and increased conversion rates by 28%. The team's expertise in creating seamless shopping experiences has been instrumental in our digital growth strategy."</p>
-                    </div>
-                    <div class="testimonial-footer">
-                        <div class="rating">
-                            <div class="star"></div>
-                            <div class="star"></div>
-                            <div class="star"></div>
-                            <div class="star"></div>
-                            <div class="star"></div>
-                        </div>
-                        <div class="project-type">Web Development</div>
-                    </div>
-                </div> -->
+               
             </div>
         </section>
 
@@ -504,5 +497,7 @@
     <script src="js/navigation.js"></script>
     <script src="js/animations.js"></script>
     <script src="js/main.js"></script>
+
+    
 </body>
 </html>

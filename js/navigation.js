@@ -1,23 +1,3 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // // Radial Navigation
-  // const navToggle = document.querySelector(".nav-toggle");
-  // const radialNav = document.querySelector(".radial-nav");
-  // const navItems = document.querySelectorAll(".radial-nav ul li");
-
-  // // Position nav items in a circle
-  // const totalItems = navItems.length;
-  // const radius = 120; // Radius of the circle
-  // const startAngle = -90; // Start from top (in degrees)
-  // const angleStep = 360 / totalItems; // Angle between each item
-
-  // navItems.forEach((item, index) => {
-  //   const angle = (startAngle + index * angleStep) * (Math.PI / 180); // Convert to radians
-  //   const x = radius * Math.cos(angle);
-  //   const y = radius * Math.sin(angle);
-
-  //   item.style.transform = translate(${x}px, ${y}px);
-  //   item.style.transitionDelay = ${index * 0.05}s;
-  // });
 
   // Toggle navigation
   navToggle.addEventListener("click", function(e) {
@@ -59,3 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+function toggleMenu() {
+  const navLinks = document.querySelector('.nav-links');
+  navLinks.classList.toggle('active');
+}
